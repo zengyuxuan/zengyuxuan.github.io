@@ -1090,31 +1090,26 @@ img{ max-width:100% }
 }
 
 /* =========================================================================
-   Mobile (≤640px) — magazine variant only
-   Overrides inline styles from index.html static fallback with !important.
+   Mobile (≤640px) — magazine variant
+   Many React-rendered elements use inline style props, so we need
+   precise selectors with !important to override them.
    ========================================================================= */
 @media (max-width: 640px){
 
-  /* Body / page padding */
+  /* ---------- base ---------- */
   body{ font-size: 16px !important }
   .mg .page{ padding: 14px 16px 60px }
 
-  /* Topbar: stack masthead above nav */
+  /* ---------- topbar / nav ---------- */
   .mg .topbar{
     flex-direction: column;
     align-items: flex-start;
     gap: 14px;
     padding-bottom: 12px;
   }
-  .mg .masthead{
-    font-size: 1.6em;
-    gap: .4em;
-  }
-  .mg .masthead > span:first-child{
-    font-size: 32px !important;
-  }
+  .mg .masthead{ font-size: 1.5em; gap: .4em }
+  .mg .masthead > span:first-child{ font-size: 30px !important }
 
-  /* Nav: keep on one line, smaller padding/font; allow wrap if needed */
   .mg .nav{
     width: 100%;
     flex-wrap: wrap;
@@ -1129,85 +1124,190 @@ img{ max-width:100% }
     text-align: center;
   }
 
-  /* Hero spacing */
+  /* ---------- page titles (display headlines) ----------
+     These match h1.display whether sized via inline (100px / 90px)
+     or via the clamp() rule from desktop. */
+  .mg h1.display,
+  .mg h1.display[style]{
+    font-size: clamp(36px, 9vw, 56px) !important;
+    line-height: 1.1 !important;
+    margin: 0 0 28px 0 !important;
+    max-width: 100% !important;
+    letter-spacing: -.03em !important;
+  }
+  .mg h1.display .lab,
+  .mg h1.display .lab[style]{
+    font-size: inherit !important;
+  }
+
+  /* ---------- HOME page ---------- */
   .mg .hero{ padding: 14px 0 18px }
   .mg .kicker{ margin-bottom: 16px; font-size: 10px }
   .mg .kicker::before{ width: 24px }
 
-  /* Display headline: shrink and let text wrap */
-  .mg h1.display{
-    font-size: clamp(30px, 7vw, 44px) !important;
-    line-height: 1.12 !important;
-    margin: 0 0 28px 0;
-    max-width: 100%;
-  }
-  .mg h1.display .lab{
-    font-size: inherit !important;
-  }
-
-  /* Splash badge: take it out of absolute flow, place below headline */
-  .mg .splash{
+  /* Splash badge: out of absolute flow, below headline */
+  .mg .splash,
+  .mg .splash[style]{
     position: static !important;
     width: 130px !important;
     height: 130px !important;
     font-size: 16px !important;
-    margin: 0 0 24px 0;
-    transform: rotate(6deg);
+    margin: 0 0 24px 0 !important;
+    transform: rotate(6deg) !important;
   }
 
-  /* Hero content area: single column */
-  .mg .below{
-    grid-template-columns: 1fr !important;
-    gap: 24px;
-  }
-  .mg .below .lede{
+  /* Hero content area: single column, force lede width */
+  .mg .below{ grid-template-columns: 1fr !important; gap: 20px }
+  .mg .below .lede,
+  .mg .below .lede[style]{
     font-size: 1em !important;
-    line-height: 1.55;
+    line-height: 1.55 !important;
     max-width: 100% !important;
+    width: 100% !important;
   }
   .mg .below .lede .dropcap{
-    font-size: 3.6em;
-    padding: 4px 8px 0 0;
+    font-size: 3.4em !important;
+    padding: 4px 8px 0 0 !important;
   }
 
-  /* Meta grid: single column on phone */
-  .mg .meta-grid{
+  /* Meta-grid (Affiliation / Position / etc.) — scale down to match body */
+  .mg .meta-grid,
+  .mg .meta-grid[style]{
     grid-template-columns: 1fr !important;
-    gap: 1em !important;
+    gap: .9em !important;
     height: auto !important;
     font-size: 13px !important;
   }
-  .mg .meta-grid > div{
+  .mg .meta-grid > div,
+  .mg .meta-grid > div[style]{
     font-size: 13px !important;
   }
-  .mg .meta-grid b{
-    font-size: 11px !important;
-    letter-spacing: .14em;
+  /* The label <b> and its inline-style sibling <span> both need shrinking */
+  .mg .meta-grid b,
+  .mg .meta-grid b[style]{
+    font-size: 10.5px !important;
+    letter-spacing: .14em !important;
+  }
+  .mg .meta-grid span,
+  .mg .meta-grid span[style],
+  .mg .meta-grid a,
+  .mg .meta-grid a[style]{
+    font-size: 13px !important;
   }
 
-  /* Stripe (marquee): smaller text */
-  .mg .stripe{
+  /* ---------- PROJECTS page ---------- */
+  /* Hero project card: collapse 1.35fr+1fr to single column */
+  .mg .proj-card[style]{
+    grid-template-columns: 1fr !important;
+    margin-bottom: 20px !important;
+  }
+  /* Hero card's left & right panels: relax padding, drop the divider that
+     was vertical and would now sit between two stacked blocks */
+  .mg .proj-card > div[style],
+  .mg .proj-card > aside[style]{
+    padding: 22px 20px !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--rule);
+  }
+  .mg .proj-card > aside[style]:last-child{ border-bottom: none !important }
+
+  /* Hero card title (78px → 36px). Generic h2 inside .proj-card. */
+  .mg .proj-card h2[style]{
+    font-size: 36px !important;
+    line-height: 1.05 !important;
+    letter-spacing: -.02em !important;
+  }
+  /* Hero card lede paragraph (19px → 15px) */
+  .mg .proj-card p[style]{
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+  }
+
+  /* The 3 small cards: stack vertically (was 3-column grid) */
+  .mg section > div[style*="repeat(3"]{
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  /* Small cards: title (30px → 24px) */
+  .mg section > div[style*="repeat(3"] h3[style]{
+    font-size: 24px !important;
+    line-height: 1.1 !important;
+  }
+  /* Small cards: blurb (14.5 → 14) — kept close to default to feel "smaller" */
+  .mg section > div[style*="repeat(3"] p[style]{
+    font-size: 14px !important;
+  }
+
+  /* ---------- PUBLICATIONS page ---------- */
+  /* Section titles (Publications / Presentations / Patents) shrink */
+  .mg section > div[style*="border-bottom: 2px solid"] h2[style]{
+    font-size: 28px !important;
+  }
+  /* The year-column + content layout: collapse 120px+1fr to single column */
+  .mg section > div[style*="grid-template-columns"][style*="120px"]{
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    padding: 16px 0 !important;
+  }
+  /* Year label (56px → 28px when stacked) */
+  .mg section > div[style*="grid-template-columns"][style*="120px"] > div[style]:first-child{
+    font-size: 28px !important;
+  }
+  /* Publication titles (22px → 19px) */
+  .mg section h3[style*="serif-display"]{
+    font-size: 19px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* ---------- CONTACT page ---------- */
+  /* Two-column grid → single column */
+  .mg section[style*="paddingTop: 36"] > div[style*="grid-template"],
+  .mg section > div[style*="1fr 1fr"]{
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  /* Left intro paragraph (22px → 16px) */
+  .mg section > div > div > p[style*="22"]{
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+  }
+  /* Email link (40px → 22px) */
+  .mg section a[style*="40"]{
+    font-size: 22px !important;
+    border-bottom-width: 2px !important;
+    word-break: break-all;
+  }
+
+  /* ---------- STRIPE / MARQUEE ---------- */
+  /* Override every inline-style span inside the marquee */
+  .mg .stripe,
+  .mg .stripe[style]{
     margin-top: 24px;
-    padding: .8em 1em;
+    padding: .8em 1em !important;
     font-size: 11px !important;
     height: auto !important;
     letter-spacing: .12em;
   }
-  .mg .stripe .marquee span{
+  .mg .stripe .marquee span,
+  .mg .stripe .marquee span[style]{
     font-size: 11px !important;
     gap: 18px;
   }
 
-  /* Hide keyboard-shortcut hint (no keyboard on phone) */
-  .kbd-hint{ display: none !important }
+  /* ---------- WIP page ---------- */
+  .wip-page{ padding: 56px 18px 80px !important }
 
-  /* Generic safety net: prevent any oversized images/embeds */
+  /* ---------- misc ---------- */
+  .kbd-hint{ display: none !important }
   img, iframe, video{ max-width: 100%; height: auto }
 }
 
 /* Even tighter for very narrow phones (≤380px) */
 @media (max-width: 380px){
   .mg .nav a{ padding: .5em .55em; font-size: 10px !important }
-  .mg .masthead > span:first-child{ font-size: 26px !important }
-  .mg h1.display{ font-size: 26px !important }
+  .mg .masthead > span:first-child{ font-size: 24px !important }
+  .mg h1.display,
+  .mg h1.display[style]{ font-size: 32px !important }
+  .mg .proj-card h2[style]{ font-size: 28px !important }
+  .mg section a[style*="40"]{ font-size: 19px !important }
 }
