@@ -11,7 +11,7 @@ const SITE = {
   email: "zeng.774@osu.edu",
   // cv: change to "pdfs/cv.pdf" once you upload your CV.
   // Leave as "#/wip" to show the placeholder page.
-  cv: "#/wip",
+  cv: "pdfs/cv.pdf",
   scholar: "https://scholar.google.com/citations?user=nvoB5SAAAAAJ",
   github: "https://github.com/zengyuxuan",
   bluesky: "https://bsky.app/profile/yuxuanzeng.bsky.social",
@@ -51,19 +51,19 @@ const SITE = {
     { who: "Zeng, Y., Hentz, R. E., & Osher, D. E.", t: "Post-criterion exposure shapes the development of holistic processing." },
   ],
   publications: [
-    { yr: "2026", who: "Zeng, Y., Lu, Z., Hentz, R. E., & Osher, D. E.", t: "Face-like holistic processing in non-face stimuli.", j: "Cognitive Psychology", vol: "164, 101801", tag: "1st author", link: "https://www.sciencedirect.com/science/article/pii/S0010028526000216", pdf: "#/wip" },
-    { yr: "2024", who: "Zeng, Y., Oechslin, T. S., Widmer, D. E., Kulp, M. T., Fogt, N., Toole, A., … & Osher, D. E.", t: "Neural consequences of symptomatic convergence insufficiency: A small sample study.", j: "Ophthalmic and Physiological Optics", vol: "44(3), 537–545", tag: "1st author", link: "https://link.springer.com/article/10.1111/opo.13303", pdf: "#/wip" },
+    { yr: "2026", who: "Zeng, Y., Lu, Z., Hentz, R. E., & Osher, D. E.", t: "Face-like holistic processing in non-face stimuli.", j: "Cognitive Psychology", vol: "164, 101801", tag: "1st author", link: "https://www.sciencedirect.com/science/article/pii/S0010028526000216", pdf: "pdfs/zeng-2026-cogpsy.pdf" },
+    { yr: "2024", who: "Zeng, Y., Oechslin, T. S., Widmer, D. E., Kulp, M. T., Fogt, N., Toole, A., … & Osher, D. E.", t: "Neural consequences of symptomatic convergence insufficiency: A small sample study.", j: "Ophthalmic and Physiological Optics", vol: "44(3), 537–545", tag: "1st author", link: "https://link.springer.com/article/10.1111/opo.13303", pdf: "pdfs/zeng-2024-opo.pdf" },
     { yr: "2023", who: "Li, Z., Zhang, L., Zeng, Y., Zhao, Q., & Hu, L.", t: "Gamma-band oscillations of pain and nociception: A systematic review and meta-analysis of human and rodent studies.", j: "Neuroscience & Biobehavioral Reviews", vol: "105062", tag: "", link: "https://www.sciencedirect.com/science/article/pii/S0149763423000313", pdf: "#/wip" },
-    { yr: "2021", who: "Wang, F., Zhang, L., Yue, L., Zeng, Y., Zhao, Q., Gong, Q., … & Hu, L.", t: "A novel method to simultaneously record spinal cord electrophysiology and electroencephalography signals.", j: "NeuroImage", vol: "232, 117892", tag: "", link: "https://www.sciencedirect.com/science/article/pii/S1053811921001695", pdf: "#/wip" },
-    { yr: "2021", who: "Wang, X. Q., Mokhtari, T., Zeng, Y. X., Yue, L. P., & Hu, L.", t: "The distinct functions of dopaminergic receptors on pain modulation: A narrative review.", j: "Neural Plasticity", vol: "", tag: "", link: "https://www.proquest.com/docview/2497888263", pdf: "#/wip" },
+    { yr: "2021", who: "Wang, F., Zhang, L., Yue, L., Zeng, Y., Zhao, Q., Gong, Q., … & Hu, L.", t: "A novel method to simultaneously record spinal cord electrophysiology and electroencephalography signals.", j: "NeuroImage", vol: "232, 117892", tag: "", link: "https://www.sciencedirect.com/science/article/pii/S1053811921001695", pdf: "pdfs/wang-2021-neuroimage.pdfp" },
+    { yr: "2021", who: "Wang, X. Q., Mokhtari, T., Zeng, Y. X., Yue, L. P., & Hu, L.", t: "The distinct functions of dopaminergic receptors on pain modulation: A narrative review.", j: "Neural Plasticity", vol: "", tag: "", link: "https://www.proquest.com/docview/2497888263", pdf: "pdfs/wang-2021-np.pdf" },
   ],
   presentations: [
     { yr: "2026", who: "Zeng, Y., Hentz, R. E., & Osher, D. E.", t: "Holistic processing requires expertise, but expertise may develop rapidly.", v: "Vision Sciences Society 2026", kind: "Conference", pdf: "#/wip" },
-    { yr: "2025", who: "Zeng, Y., Hentz, R. E., & Osher, D. E.", t: "Rethinking configurational and feature-based processing in visual recognition.", v: "Vision Sciences Society 2025", kind: "Conference", pdf: "#/wip" },
+    { yr: "2025", who: "Zeng, Y., Hentz, R. E., & Osher, D. E.", t: "Rethinking configurational and feature-based processing in visual recognition.", v: "Vision Sciences Society 2025", kind: "Conference", pdf: "pdfs/vss-2025-poster.pdf" },
     { yr: "2024", who: "Zeng, Y., Hentz, R. E., & Osher, D. E.", t: "Selectivity to object features and configuration in the ventral visual stream.", v: "Organization for Human Brain Mapping 2024", kind: "Conference", pdf: "#/wip" },
-    { yr: "2024", who: "Zeng, Y., Hentz, R. E., & Osher, D. E.", t: "An occipitotemporal region that identifies relevant features.", v: "Vision Sciences Society 2024", kind: "Conference", pdf: "#/wip" },
-    { yr: "2023", who: "Zeng, Y., Fogt, N., Kulp, M., Toole, A., … & Osher, D. E.", t: "The neural consequences of symptomatic convergence insufficiency and reading.", v: "Organization for Human Brain Mapping 2023", kind: "Conference", pdf: "#/wip" },
-    { yr: "2023", who: "Zeng, Y., Hentz, R. E., & Osher, D. E.", t: "A novel framework to study configural and holistic processing.", v: "Vision Sciences Society 2023", kind: "Conference", pdf: "#/wip" },
+    { yr: "2024", who: "Zeng, Y., Hentz, R. E., & Osher, D. E.", t: "An occipitotemporal region that identifies relevant features.", v: "Vision Sciences Society 2024", kind: "Conference", pdf: "pdfs/vss-2024-poster.pdf" },
+    { yr: "2023", who: "Zeng, Y., Fogt, N., Kulp, M., Toole, A., … & Osher, D. E.", t: "The neural consequences of symptomatic convergence insufficiency and reading.", v: "Organization for Human Brain Mapping 2023", kind: "Conference", pdf: "pdfs/ohbm-2023-poster.pdf" },
+    { yr: "2023", who: "Zeng, Y., Hentz, R. E., & Osher, D. E.", t: "A novel framework to study configural and holistic processing.", v: "Vision Sciences Society 2023", kind: "Conference", pdf: "pdfs/vss-2023-poster.pdf" },
   ],
   patents: [
     { yr: "2021", t: "An Adaptive Multimodal Emotion Regulation System and Method.", id: "CN112618913A" },
