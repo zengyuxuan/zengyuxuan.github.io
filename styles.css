@@ -1196,20 +1196,23 @@ img{ max-width:100% }
   }
 
   /* ---------- PROJECTS page ---------- */
-  /* Hero project card: collapse 1.35fr+1fr to single column */
-  .mg .proj-card[style]{
+  /* Hero project card only: collapse 1.35fr+1fr to single column.
+     The selector targets the hero card via its unique 1.35fr grid;
+     the 3 small cards use flex, not grid, so they're untouched. */
+  .mg .proj-card[style*="1.35fr"]{
     grid-template-columns: 1fr !important;
     margin-bottom: 20px !important;
   }
-  /* Hero card's left & right panels: relax padding, drop the divider that
-     was vertical and would now sit between two stacked blocks */
-  .mg .proj-card > div[style],
-  .mg .proj-card > aside[style]{
+  /* Hero card's left text panel and right outputs panel: relax padding,
+     drop the now-incorrect vertical divider, add a horizontal one. */
+  .mg .proj-card[style*="1.35fr"] > div[style]{
     padding: 22px 20px !important;
     border-right: none !important;
-    border-bottom: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule) !important;
   }
-  .mg .proj-card > aside[style]:last-child{ border-bottom: none !important }
+  .mg .proj-card[style*="1.35fr"] > aside[style]{
+    padding: 22px 20px !important;
+  }
 
   /* Hero card title (78px → 36px). Generic h2 inside .proj-card. */
   .mg .proj-card h2[style]{
@@ -1278,8 +1281,10 @@ img{ max-width:100% }
     word-break: break-all;
   }
 
-  /* ---------- STRIPE / MARQUEE ---------- */
-  /* Override every inline-style span inside the marquee */
+  /* ---------- STRIPE / MARQUEE ----------
+     Some marquee spans have multiple inline-style properties (font-size +
+     color); use a universal-descendant selector so every text node inside
+     the stripe definitely gets shrunk. */
   .mg .stripe,
   .mg .stripe[style]{
     margin-top: 24px;
@@ -1288,11 +1293,11 @@ img{ max-width:100% }
     height: auto !important;
     letter-spacing: .12em;
   }
-  .mg .stripe .marquee span,
-  .mg .stripe .marquee span[style]{
+  .mg .stripe *,
+  .mg .stripe *[style]{
     font-size: 11px !important;
-    gap: 18px;
   }
+  .mg .stripe .marquee span{ gap: 18px }
 
   /* ---------- WIP page ---------- */
   .wip-page{ padding: 56px 18px 80px !important }
@@ -1311,3 +1316,4 @@ img{ max-width:100% }
   .mg .proj-card h2[style]{ font-size: 28px !important }
   .mg section a[style*="40"]{ font-size: 19px !important }
 }
+
