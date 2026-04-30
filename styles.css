@@ -1088,3 +1088,126 @@ img{ max-width:100% }
   .wip-checklist{ position: static; margin: 0 0 36px; width: 100% }
   .wip-bar{ flex-basis: 180px }
 }
+
+/* =========================================================================
+   Mobile (≤640px) — magazine variant only
+   Overrides inline styles from index.html static fallback with !important.
+   ========================================================================= */
+@media (max-width: 640px){
+
+  /* Body / page padding */
+  body{ font-size: 16px !important }
+  .mg .page{ padding: 14px 16px 60px }
+
+  /* Topbar: stack masthead above nav */
+  .mg .topbar{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding-bottom: 12px;
+  }
+  .mg .masthead{
+    font-size: 1.6em;
+    gap: .4em;
+  }
+  .mg .masthead > span:first-child{
+    font-size: 32px !important;
+  }
+
+  /* Nav: keep on one line, smaller padding/font; allow wrap if needed */
+  .mg .nav{
+    width: 100%;
+    flex-wrap: wrap;
+    font-size: 11px !important;
+    letter-spacing: .1em;
+    gap: 0;
+  }
+  .mg .nav a{
+    padding: .55em .8em;
+    font-size: 11px !important;
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  /* Hero spacing */
+  .mg .hero{ padding: 14px 0 18px }
+  .mg .kicker{ margin-bottom: 16px; font-size: 10px }
+  .mg .kicker::before{ width: 24px }
+
+  /* Display headline: shrink and let text wrap */
+  .mg h1.display{
+    font-size: clamp(30px, 7vw, 44px) !important;
+    line-height: 1.12 !important;
+    margin: 0 0 28px 0;
+    max-width: 100%;
+  }
+  .mg h1.display .lab{
+    font-size: inherit !important;
+  }
+
+  /* Splash badge: take it out of absolute flow, place below headline */
+  .mg .splash{
+    position: static !important;
+    width: 130px !important;
+    height: 130px !important;
+    font-size: 16px !important;
+    margin: 0 0 24px 0;
+    transform: rotate(6deg);
+  }
+
+  /* Hero content area: single column */
+  .mg .below{
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+  .mg .below .lede{
+    font-size: 1em !important;
+    line-height: 1.55;
+    max-width: 100% !important;
+  }
+  .mg .below .lede .dropcap{
+    font-size: 3.6em;
+    padding: 4px 8px 0 0;
+  }
+
+  /* Meta grid: single column on phone */
+  .mg .meta-grid{
+    grid-template-columns: 1fr !important;
+    gap: 1em !important;
+    height: auto !important;
+    font-size: 13px !important;
+  }
+  .mg .meta-grid > div{
+    font-size: 13px !important;
+  }
+  .mg .meta-grid b{
+    font-size: 11px !important;
+    letter-spacing: .14em;
+  }
+
+  /* Stripe (marquee): smaller text */
+  .mg .stripe{
+    margin-top: 24px;
+    padding: .8em 1em;
+    font-size: 11px !important;
+    height: auto !important;
+    letter-spacing: .12em;
+  }
+  .mg .stripe .marquee span{
+    font-size: 11px !important;
+    gap: 18px;
+  }
+
+  /* Hide keyboard-shortcut hint (no keyboard on phone) */
+  .kbd-hint{ display: none !important }
+
+  /* Generic safety net: prevent any oversized images/embeds */
+  img, iframe, video{ max-width: 100%; height: auto }
+}
+
+/* Even tighter for very narrow phones (≤380px) */
+@media (max-width: 380px){
+  .mg .nav a{ padding: .5em .55em; font-size: 10px !important }
+  .mg .masthead > span:first-child{ font-size: 26px !important }
+  .mg h1.display{ font-size: 26px !important }
+}
