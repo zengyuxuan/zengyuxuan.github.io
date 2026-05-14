@@ -25,7 +25,7 @@ const SITE = {
 
   // Conference presentations
   presentations: [
-    { yr: "2026", who: "Zeng, Y., Hentz, R. E., & Osher, D. E.", t: "Holistic processing requires expertise, but expertise may develop rapidly.", v: "Vision Sciences Society 2026", kind: "Conference", pdf: "#/wip" },
+    { yr: "2026", who: "Zeng, Y., Hentz, R. E., & Osher, D. E.", t: "Holistic processing requires expertise, but expertise may develop rapidly.", v: "Vision Sciences Society 2026", kind: "Conference", pdf: "pdfs/vss-2026-poster.pdf" },
     { yr: "2025", who: "Zeng, Y., Hentz, R. E., & Osher, D. E.", t: "Rethinking configurational and feature-based processing in visual recognition.", v: "Vision Sciences Society 2025", kind: "Conference", pdf: "pdfs/vss-2025-poster.pdf" },
     { yr: "2024", who: "Zeng, Y., Hentz, R. E., & Osher, D. E.", t: "Selectivity to object features and configuration in the ventral visual stream.", v: "Organization for Human Brain Mapping 2024", kind: "Conference", pdf: "#/wip" },
     { yr: "2024", who: "Zeng, Y., Hentz, R. E., & Osher, D. E.", t: "An occipitotemporal region that identifies relevant features.", v: "Vision Sciences Society 2024", kind: "Conference", pdf: "pdfs/vss-2024-poster.pdf" },
